@@ -1,0 +1,12 @@
+CHIP Xor {
+   IN a, b;
+   OUT out;
+
+   PARTS:
+   // Note: Each "out" is storing a variable or "pin"
+   Not (in=a, out=Nota);
+   Not (in=b, out=Notb);
+   And (a=a, b=Notb, out=aAndNotb);
+   And (a=Nota, b=b, out=NotaAndb);
+   Or (a=aAndNotb, b=NotaAndb, out=out);
+}
